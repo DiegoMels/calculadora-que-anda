@@ -24,7 +24,12 @@ public class ControladorLetra implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         this.campo_texto.setText(campo_texto.getText() + caption); //Acumula lo que tiene escrito + lo que entra.
-        datosCalc.setUltimo_num(datosCalc.getUltimo_num() + caption);
+        if(datosCalc.getUltimo_num() == null){
+            datosCalc.setUltimo_num(caption);
+        }else{
+            datosCalc.setUltimo_num(datosCalc.getUltimo_num() + caption);
+        }
+        
         //ultimo_num = ultimo_num + caption;
         System.out.println("dentro del controlador letra: " + datosCalc.getUltimo_num());
     }
