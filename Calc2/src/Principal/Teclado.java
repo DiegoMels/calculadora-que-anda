@@ -1,8 +1,5 @@
 package Principal;
 
-import controlador.ControladorM_Mas;
-import controlador.ControladorM_Menos;
-import controlador.ControladorMemoryRecall;
 import datos.Operador;
 import datos.Letra;
 import java.awt.GridLayout;
@@ -23,9 +20,7 @@ public class Teclado extends JFrame {
     private JButton m_mas = new JButton("M+");
     private JButton m_menos = new JButton("M-");
     private JButton memory_recall = new JButton("MR");
-    private ControladorM_Mas controladorM_mas = new ControladorM_Mas();
-    private ControladorM_Menos controladorM_menos = new ControladorM_Menos();
-    private ControladorMemoryRecall controladorM_recall = new ControladorMemoryRecall();
+ 
 
     private String bor_caracteres;
     
@@ -39,9 +34,7 @@ public class Teclado extends JFrame {
         this.add(m_mas);
         this.add(m_menos);
         this.add(memory_recall);
-        this.m_mas.addMouseListener(controladorM_mas);
-        this.m_menos.addMouseListener(controladorM_menos);
-        this.memory_recall.addMouseListener(controladorM_recall);
+
         Datos_Calc datosCalc = new Datos_Calc();  //Instanciamos esta clase que contiene las variables para los operadores.
         
         
