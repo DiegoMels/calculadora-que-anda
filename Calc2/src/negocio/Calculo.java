@@ -19,6 +19,11 @@ public class Calculo {
     public Calculo(Datos_Calc datosCalc) {
         this.datosCalc = datosCalc;
     }
+
+    public Calculo() {
+        
+        
+    }
     
     private void suma(){
         datosCalc.setAcumulador(datosCalc.getAcumulador() + Double.valueOf(datosCalc.getUltimo_num()));
