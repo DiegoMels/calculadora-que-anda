@@ -34,7 +34,15 @@ public class ControladorOperador implements MouseListener {
         datosCalc.setActual_op(caption_op);
         Calculo unCalculo = new Calculo(datosCalc);
         unCalculo.analizadorOperador(datosCalc.getActual_op());
-        campo_total.setText(datosCalc.getAcumulador().toString());
+
+            campo_total.setText(datosCalc.getAcumulador().toString());
+            //si dejo esta linea el resultado lo muestra por el campo total
+            //si la saco, hace la suma la hace pero no la muestra en el campo total
+  
+        
+       // campo_total.setText(datosCalc.getAcumuladorMulti().toString());
+       //si pongo esta linea y saco la linea de: campo_total.setText(datosCalc.getAcumulador().toString());
+       //la multiplicacion la hace y la muestra por el campo total       
     }
 
     @Override

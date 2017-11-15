@@ -5,6 +5,15 @@ package Principal;
 public class Datos_Calc {
     
     private Double acumulador = 0.0;
+    private Double acumuladorMulti = 1.0;
+
+    public Double getAcumuladorMulti() {
+        return acumuladorMulti;
+    }
+
+    public void setAcumuladorMulti(Double acumuladorMulti) {
+        this.acumuladorMulti = acumuladorMulti;
+    }
     private String ultimo_num = null;
     private String ultimo_op = "";
     private Double rst = 0.0;

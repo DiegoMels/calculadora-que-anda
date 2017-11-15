@@ -1,5 +1,8 @@
 package Principal;
 
+import controlador.ControladorM_Mas;
+import controlador.ControladorM_Menos;
+import controlador.ControladorMemoryRecall;
 import datos.Operador;
 import datos.Letra;
 import java.awt.GridLayout;
@@ -17,6 +20,13 @@ public class Teclado extends JFrame {
     private JTextField campo_total = new JTextField();
     private JButton borrar = new JButton("Borrar");
     private JButton borrarc_a_c = new JButton("Borrar c_a_c");
+    private JButton m_mas = new JButton("M+");
+    private JButton m_menos = new JButton("M-");
+    private JButton memory_recall = new JButton("MR");
+    private ControladorM_Mas controladorM_mas = new ControladorM_Mas();
+    private ControladorM_Menos controladorM_menos = new ControladorM_Menos();
+    private ControladorMemoryRecall controladorM_recall = new ControladorMemoryRecall();
+
     private String bor_caracteres;
     
     
@@ -26,7 +36,12 @@ public class Teclado extends JFrame {
         this.setLocation(200,300);
         this.setSize(800,600);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //hace que el programa se pare cuando se cierra la ventana
-
+        this.add(m_mas);
+        this.add(m_menos);
+        this.add(memory_recall);
+        this.m_mas.addMouseListener(controladorM_mas);
+        this.m_menos.addMouseListener(controladorM_menos);
+        this.memory_recall.addMouseListener(controladorM_recall);
         Datos_Calc datosCalc = new Datos_Calc();  //Instanciamos esta clase que contiene las variables para los operadores.
         
         
@@ -77,6 +92,7 @@ public class Teclado extends JFrame {
     
     this.add(new Operador("=",campo_texto, campo_total, datosCalc));
     this.setVisible(true);    //Se pone abajo de todo, asi cuando termina de cargar todo lo que se le pide, lo muestra.
+    
     }
 
     
