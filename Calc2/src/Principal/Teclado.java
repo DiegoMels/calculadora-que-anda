@@ -17,9 +17,7 @@ public class Teclado extends JFrame {
     private JTextField campo_total = new JTextField();
     private JButton borrar = new JButton("Borrar");
     private JButton borrarc_a_c = new JButton("Borrar c_a_c");
-    private JButton m_mas = new JButton("M+");
-    private JButton m_menos = new JButton("M-");
-    private JButton memory_recall = new JButton("MR");
+
  
 
     private String bor_caracteres;
@@ -31,9 +29,7 @@ public class Teclado extends JFrame {
         this.setLocation(200,300);
         this.setSize(800,600);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //hace que el programa se pare cuando se cierra la ventana
-        this.add(m_mas);
-        this.add(m_menos);
-        this.add(memory_recall);
+
 
         Datos_Calc datosCalc = new Datos_Calc();  //Instanciamos esta clase que contiene las variables para los operadores.
         
