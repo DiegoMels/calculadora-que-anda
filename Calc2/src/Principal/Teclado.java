@@ -32,8 +32,7 @@ public class Teclado extends JFrame {
         this.setSize(800,600);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //hace que el programa se pare cuando se cierra la ventana
         Datos_Calc datosCalc = new Datos_Calc();  //Instanciamos esta clase que contiene las variables para los operadores.
-        this.add(grabar);
-        this.grabar.addMouseListener(controladorGrabar);
+        
         
         
         borrar.addActionListener(new ActionListener(){   //Este boton borrar todo el campo_texto de un solo click.
@@ -50,6 +49,7 @@ public class Teclado extends JFrame {
         bor_caracteres = bor_caracteres.substring(0, bor_caracteres.length()-1);
         
         campo_total.setText(bor_caracteres);
+        
         /*Esta variable borra caracter a caracter.
         El metodo substring logra esto, para ello tengo que asignar una variable,
         y lo que devuelve la seteamos en el campo correspondiente.
@@ -63,7 +63,8 @@ public class Teclado extends JFrame {
     this.add(campo_texto);
     this.add(new JLabel("Resultado Total"));
     this.add(campo_total);
-    
+    this.add(grabar);
+    this.grabar.addMouseListener(controladorGrabar);
     
     this.add(new Letra("0",campo_texto, campo_total, datosCalc));
     this.add(new Letra("1",campo_texto, campo_total, datosCalc));

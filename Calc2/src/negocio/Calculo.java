@@ -20,11 +20,6 @@ public class Calculo {
         this.datosCalc = datosCalc;
     }
 
-    public Calculo() {
-        
-        
-    }
-    
     private void suma(){
         datosCalc.setAcumulador(datosCalc.getAcumulador() + Double.valueOf(datosCalc.getUltimo_num()));
         System.out.println("el acumulador es: "+ datosCalc.getAcumulador());
@@ -34,10 +29,18 @@ public class Calculo {
         datosCalc.setAcumulador(- datosCalc.getAcumulador() - Double.valueOf(datosCalc.getUltimo_num()));
     }
     private void multiplicar(){
-       datosCalc.setAcumuladorMulti(datosCalc.getAcumuladorMulti() *  Double.valueOf(datosCalc.getUltimo_num()));
-       //AcumuladorMulti lo hise en Datos_Calc inicializado en 1.0 para que pueda realizar la suma
-       //sino siempre multiplica contra 0
+        if (datosCalc.getAcumulador() == 0){
+            datosCalc.setAcumulador(datosCalc.getConvertirUno());
+        }
+        datosCalc.setAcumulador(datosCalc.getAcumulador() * Double.valueOf(datosCalc.getUltimo_num()));
+    }
+    private void dividir(){
+        if (datosCalc.getAcumulador() == 0){
+            datosCalc.setAcumulador(datosCalc.getConvertirUno());
+            datosCalc.setAcumulador(Double.valueOf(datosCalc.getUltimo_num()) / datosCalc.getAcumulador());
 
+        }else
+        datosCalc.setAcumulador(datosCalc.getAcumulador() / Double.valueOf(datosCalc.getUltimo_num()));
 
     }
  
@@ -56,9 +59,9 @@ public class Calculo {
         else if (op.equals("*")){
             this.multiplicar();
         }
-        /*else if (op.equals("/")){
-            this.division();
-        }*/
+        else if (op.equals("/")){
+            this.dividir();
+        }
         else if(op.equals("=")){
             this.igual();
         }    

@@ -5,15 +5,18 @@ package Principal;
 public class Datos_Calc {
     
     private Double acumulador = 0.0;
-    private Double acumuladorMulti = 1.0;
+    private Double convertirUno = 1.0;
 
-    public Double getAcumuladorMulti() {
-        return acumuladorMulti;
+
+    public Double getConvertirUno() {
+        return convertirUno;
     }
 
-    public void setAcumuladorMulti(Double acumuladorMulti) {
-        this.acumuladorMulti = acumuladorMulti;
+    public void setConvertirUno(Double convertirUno) {
+        this.convertirUno = convertirUno;
     }
+
+ 
     private String ultimo_num = null;
     private String ultimo_op = "";
     private Double rst = 0.0;
