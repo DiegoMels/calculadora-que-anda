@@ -2,7 +2,7 @@ package controlador;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import DAO.Consultar;
+import DAO.Consulta;
 import javax.swing.JTextField;
 import negocio.Calculo;
 
@@ -11,7 +11,7 @@ import negocio.Calculo;
 public class ControladorGrabar implements MouseListener {
 
     
-     Consultar daoConsulta;
+     Consulta daoConsulta;
     JTextField campo_texto;
 
     public ControladorGrabar(JTextField campo_texto) {
@@ -22,7 +22,7 @@ public class ControladorGrabar implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         
-      daoConsulta = new Consultar();
+      daoConsulta = new Consulta();
       //daoConsulta.GrabarCalculo(campo_texto.getText());
        // campo_total.setText(datosCalc.getAcumulador().toString());
         //daoConsultar.GrabarCalculo(campo_texto.getText());
