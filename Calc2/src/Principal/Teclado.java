@@ -1,6 +1,6 @@
 package Principal;
 
-import controlador.ControladorGrabar;
+import controlador.ControladorConectar;
 import datos.Operador;
 import datos.Letra;
 import java.awt.GridLayout;
@@ -18,8 +18,8 @@ public class Teclado extends JFrame {
     private JTextField campo_total = new JTextField();
     private JButton borrar = new JButton("Borrar");
     private JButton borrarc_a_c = new JButton("Borrar c_a_c");
-    private JButton grabar = new JButton("Grabar");
-    ControladorGrabar controladorGrabar = new ControladorGrabar(campo_texto);
+    private JButton conectar = new JButton("Conectar");
+    ControladorConectar controladorConectar = new ControladorConectar(campo_texto);
  
 
     private String bor_caracteres;
@@ -63,8 +63,8 @@ public class Teclado extends JFrame {
     this.add(campo_texto);
     this.add(new JLabel("Resultado Total"));
     this.add(campo_total);
-    this.add(grabar);
-    this.grabar.addMouseListener(controladorGrabar);
+    this.add(conectar);
+    this.conectar.addMouseListener(controladorConectar);
     
     this.add(new Letra("0",campo_texto, campo_total, datosCalc));
     this.add(new Letra("1",campo_texto, campo_total, datosCalc));

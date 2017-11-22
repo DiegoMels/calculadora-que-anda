@@ -16,13 +16,13 @@ import negocio.Calculo;
 
 
 
-public class ControladorGrabar implements MouseListener {
+public class ControladorConectar implements MouseListener {
 
     
      Consultar daoConsulta;
     JTextField campo_texto;
 
-    public ControladorGrabar(JTextField campo_texto) {
+    public ControladorConectar(JTextField campo_texto) {
         this.campo_texto = campo_texto;
     }
     
@@ -37,11 +37,28 @@ public class ControladorGrabar implements MouseListener {
              
 
               try {
-             daoConsulta.GrabarCalculo(campo_texto);
-             
+                //daoConsulta.Conectar(campo_texto);
+                daoConsulta.GrabarCalculo(campo_texto.getText());
              } catch (SQLException ex) {
-             Logger.getLogger(ControladorGrabar.class.getName()).log(Level.SEVERE, null, ex);
-             }
+             Logger.getLogger(ControladorConectar.class.getName()).log(Level.SEVERE, null, ex);
+             
+/* La clase java.util.logging.Logger proporciona varios métodos con los que se pueden anotar cronológicamente los datos.
+En the WebSphere Application Server, cuando se utiliza el modo de registro y rastreo básico, la API de registro cronológico Java (java.util.logging)
+crea automáticamente Common Base Events para los sucesos registrados cronológicamente en el nivel
+WsLevel.DETAIL o superior (incluido WsLevel.DETAIL, Level.CONFIG, Level.INFO, WsLevel.AUDIT, Level.
+WARNING, Level.SEVERE y WsLevel.FATAL). Estos Common Base Events se crean mediante la fábrica de sucesos asociada con el registrador
+en el que se ha anotado cronológicamente el mensaje. Si no se especifica ninguna fábrica de sucesos, WebSphere Application Server utiliza
+una fábrica de sucesos por omisión que rellenará automáticamente la información específica de WebSphere Application Server.*/
+             
+             } catch (ClassNotFoundException ex) {
+             Logger.getLogger(ControladorConectar.class.getName()).log(Level.SEVERE, null, ex);
+         }
+             
+             //daoConsulta.GrabarCalculo(campo_texto.getText());
+             // campo_total.setText(datosCalc.getAcumulador().toString());
+             //daoConsultar.GrabarCalculo(campo_texto.getText());
+             /*daoConsultar.GrabarCalculo(campo_texto);
+             System.out.println("dentro de mouse clicked " + campo_texto);
              
              //daoConsulta.GrabarCalculo(campo_texto.getText());
              // campo_total.setText(datosCalc.getAcumulador().toString());

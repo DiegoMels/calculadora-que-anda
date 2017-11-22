@@ -5,11 +5,9 @@
  */
 package DAO;
 
-import negocio.Calculo;
-import controlador.ControladorGrabar;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import javax.swing.JTextField;
 
 /**
  *
@@ -18,22 +16,36 @@ import javax.swing.JTextField;
 public class Consultar {
 
     //private Coneccion cnx;
-    Coneccion cnx;
-   
-   /* public void GrabarCalculo (String calculo){
-        System.out.println("llegue");
-        //System.out.println("la varialbe es: " + );
-    }
-*/
-    public void GrabarCalculo(JTextField campo_texto) throws SQLException {
+   private Coneccion cnx;
+   private ErrorSQL errorSQL = new ErrorSQL(); 
+   PreparedStatement consulta;
+   public void GrabarCalculo (String calculo) throws SQLException, ClassNotFoundException {
+       //Coneccion cnx = new Coneccion
+    
+       Coneccion conn = new Coneccion ("localhost", "root", "yosololase","calc2", errorSQL);
+       conn.conectar();
+       Connection cnx = conn.getCnx();
+       if(cnx != null){
+        try{
+           consulta = cnx.prepareStatement("INSERT INTO almacen (almacen_string) VALUES(?)");
+            consulta.setString(1, calculo);
+            consulta.executeUpdate();
+         }catch(SQLException ex){
+                    System.out.println(ex.getMessage());
+         }
+            
+       }else{
+           System.out.println("NO conecto");
+           System.out.println(errorSQL.getDetalle());
+           System.out.println(errorSQL.getNroError());
+       }
+       
+       
         
-        System.out.println("la variable es: " + campo_texto);
-        
-        cnx = new Coneccion();
-        Connection reg = cnx.getConnection();
-        /*cnx = new Coneccion();
-        Connection reg = cnx.getCnx();*/
+//System.out.println("la varialbe es: " + );
     }
+
+  
             
     
     
